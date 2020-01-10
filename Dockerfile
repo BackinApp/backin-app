@@ -38,4 +38,4 @@ ENV PORT 9090
 
 ENV PYTHONUNBUFFERED 1
 ENV PROCESSES 8
-CMD ["uwsgi", "/app/backin/wsgi/uwsgi.ini"]
+# CMD ["uwsgi", "/app/backin/wsgi/uwsgi.ini"]
