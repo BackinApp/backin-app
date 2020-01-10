@@ -40,7 +40,7 @@ class Attribute(models.Model):
         unique=True,
         max_length=150)
     type = models.CharField(
-        choices=TYPE_DB,
+        choices=TYPE_ENTITY,
         max_length=150)
     is_null = models.BinaryField(
         default=False)
