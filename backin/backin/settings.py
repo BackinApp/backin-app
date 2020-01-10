@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Platform modules
-    'accounts'
+    'accounts',
+    'techs',
 ]
 
 MIDDLEWARE = [
