@@ -3,7 +3,7 @@ from django.utils.translation import pgettext_lazy
 
 from ..accounts.models import User
 
-
+# Evaluate a project with a one or multiple databases and a database with one or multiple projects that can access to the database
 class Database(models.Model):
     name = models.CharField(
         unique=True,
