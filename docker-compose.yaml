@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:10-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=backin-back
+      - POSTGRES_USER=backin-db-user
+      - POSTGRES_PASSWORD=backin-db-pass
+  redis:
+    image: redis
+    ports:
+      - '127.0.0.1:6379:6379'
+  web:
+    build: .
+    ports:
+      - "9999:9090"
+    command: >
+        sh -c " python3 manage.py makemigrations &&
+            python3 manage.py migrate &&
+            python3 manage.py runserver 0.0.0.0:9090"
+    environment:
+      - DOCKER_CONTAINER=True
+      - DATABASE_URL=postgres://backin-back:backin-db-user@db/backin-db-pass
+      - DEFAULT_FROM_EMAIL=noreply@backin.com
+      - SECRET_KEY=changeme
+      # Postgres DBs
+      - DB_HOST=db
+      - DB_NAME=backin-back
+      - DB_USER=backin-db-user
+      - DB_PASS=backin-db-pass
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+      - redis
