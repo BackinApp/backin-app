@@ -13,7 +13,7 @@ class Database(models.Model):
         related_name='database_creator',
         null=True, blank=True,
         on_delete=models.CASCADE)
-    created_at = models.DateTimeField( 
+    created_at = models.DateTimeField(
         auto_now=True)
     last_update = models.DateTimeField(
         auto_now=True)
