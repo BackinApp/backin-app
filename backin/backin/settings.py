@@ -15,9 +15,8 @@ from __future__ import unicode_literals
 import ast
 import os
 import os.path
-from datetime import timedelta
 
-import dj_database_url
+# import dj_database_url
 
 name = "Backin"
 
@@ -36,10 +35,10 @@ SECRET_KEY = ')y0a1ty&v@^f!tpxnl9n72xt66%xl78gh7nc)_s6=9d+^2-ca_'
 DEBUG = True
 
 # SECURITY WARNING: disable * and put your hosting domain in the array
-ALLOWED_HOSTS = ['localhost', 
-    '0.0.0.0', 
-    '127.0.0.1', 
-    '*']
+ALLOWED_HOSTS = ['localhost',
+                 '0.0.0.0',
+                 '127.0.0.1',
+                 '*']
 
 APPEND_SLASH = False
 ENABLE_SSL = ast.literal_eval(os.environ.get('ENABLE_SSL', 'False'))
