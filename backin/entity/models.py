@@ -1,7 +1,7 @@
 from django.db import models
+from django.conf import settings
 
-from ..accounts.models import User
-from ..database.models import Database
+from database.models import Database
 
 
 class Entity(models.Model):
@@ -14,11 +14,11 @@ class Entity(models.Model):
         unique=True,
         max_length=300)
     created_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         related_name='entity_creator',
         on_delete=models.CASCADE)
     updated_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         related_name='entity_update_user',
         on_delete=models.CASCADE)
     created_at = models.DateTimeField(
@@ -53,11 +53,11 @@ class Attribute(models.Model):
     is_index = models.BinaryField(
         default=False)
     created_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         related_name='user_creation',
         on_delete=models.CASCADE)
     updated_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         related_name='user_update',
         on_delete=models.CASCADE)
     created_at = models.DateTimeField(

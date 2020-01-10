@@ -1,7 +1,6 @@
 from django.db import models
+from django.conf import settings
 from django.utils.translation import pgettext_lazy
-
-from ..accounts.models import User
 
 
 # Evaluate a project with a one or multiple databases
@@ -11,7 +10,7 @@ class Database(models.Model):
         unique=True,
         max_length=300)
     created_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         related_name='database_creator',
         null=True, blank=True,
         on_delete=models.CASCADE)
