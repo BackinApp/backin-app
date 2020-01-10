@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     # Platform modules
     'accounts',
     'techs',
+    'dbengine',
 ]
 
 MIDDLEWARE = [
