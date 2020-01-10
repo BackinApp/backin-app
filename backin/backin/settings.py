@@ -41,15 +41,27 @@ ALLOWED_HOSTS = ['localhost',
     '127.0.0.1', 
     '*']
 
+APPEND_SLASH = False
+ENABLE_SSL = ast.literal_eval(os.environ.get('ENABLE_SSL', 'False'))
+
 # Application definition
 
 INSTALLED_APPS = [
+    # External apps
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_countries',
+
+    # Django modules
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Platform modules
+    'accounts'
 ]
 
 MIDDLEWARE = [
