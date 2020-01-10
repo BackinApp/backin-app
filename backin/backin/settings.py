@@ -10,11 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+from __future__ import unicode_literals
+
+import ast
 import os
+import os.path
+from datetime import timedelta
+
+import dj_database_url
+
+name = "Backin"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+SITE_ID = 1
+PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,8 +35,11 @@ SECRET_KEY = ')y0a1ty&v@^f!tpxnl9n72xt66%xl78gh7nc)_s6=9d+^2-ca_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+# SECURITY WARNING: disable * and put your hosting domain in the array
+ALLOWED_HOSTS = ['localhost', 
+    '0.0.0.0', 
+    '127.0.0.1', 
+    '*']
 
 # Application definition
 
