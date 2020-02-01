@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_exempt
 """
 Django REST Framework libs
 """
@@ -21,6 +22,10 @@ class SignupView(APIView):
     """
     authentication_classes = ()
     permission_classes = (permissions.AllowAny,)
+    
+    @classmethod
+    def get_extra_actions(cls):
+        return []
 
     @staticmethod
     def post(request):
@@ -56,7 +61,10 @@ class LoginView(APIView):
     """
     authentication_classes = ()
     permission_classes = (permissions.AllowAny,)
-    queryset = User.objects.all()
+
+    @classmethod
+    def get_extra_actions(cls):
+        return []
 
     @staticmethod
     def post(request):

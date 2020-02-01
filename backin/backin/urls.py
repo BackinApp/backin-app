@@ -1,21 +1,20 @@
 """backin URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from .routers import set_auth_routes, set_api_routes, set_cms_routes
+auth_v1_router = set_auth_routes()
+api_v1_router = set_api_routes()
+cms_v1_router = set_cms_routes()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/', include(auth_v1_router.urls)),
+    path('api/v1/', include(api_v1_router.urls)),
+    # path('api/v1', include(router.urls)),
 ]
