@@ -105,16 +105,19 @@ WSGI_APPLICATION = 'backin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'HOST': os.environ.get('DB_HOST', ''),
         'NAME': os.environ.get('DATABASE', ''),
         'USER': os.environ.get('DB_USER', ''),
         'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'PORT': 5432
+        'PORT': 5432,
+        'TEST': {
+            'NAME': 'mytestdatabase',
+        },
     },
     'mirror1': {
         'NAME': 'mirror1',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'HOST': os.environ.get('HOST_MIRROR', ''),
         'NAME': os.environ.get('DATABASE_MIRROR', ''),
         'USER': os.environ.get('USER_MIRROR', ''),
