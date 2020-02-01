@@ -22,7 +22,6 @@ services:
       - AWS_SECRET_KEY=${AWS_SECRET_KEY}
 # Postgres DBs
 # Main DB
-      - DATABASE_URL=postgres://${DATABASE}:${DB_USER}@${DB_HOST}/${DB_PASSWORD}
       - DB_HOST=${DB_HOST}
       - DATABASE=${DATABASE}
       - DB_USER=${DB_USER}
