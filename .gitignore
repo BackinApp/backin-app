@@ -212,3 +212,7 @@ dmypy.json
 ### Python Patch ###
 .venv/
 venv/
+
+.data/
+./data/
+data/
