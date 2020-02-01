@@ -17,10 +17,11 @@ services:
     build: .
     ports:
       - "9999:9090"
-    command: >
-        sh -c " python3 manage.py makemigrations &&
-            python3 manage.py migrate &&
-            python3 manage.py runserver 0.0.0.0:9090"
+      command: >
+      sh -c "python3 manage.py makemigrations &&
+          python3 manage.py migrate &&
+          python3 manage.py loaddata */fixtures/*.json &&
+          python3 manage.py runserver 0.0.0.0:9090"
     environment:
       - DOCKER_CONTAINER=True
       - DATABASE_URL=postgres://backin-back:backin-db-user@db/backin-db-pass
