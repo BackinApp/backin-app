@@ -7,14 +7,16 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
+"""
 from .routers import set_auth_routes, set_api_routes, set_cms_routes
 auth_v1_router = set_auth_routes()
 api_v1_router = set_api_routes()
 cms_v1_router = set_cms_routes()
+"""
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include(auth_v1_router.urls)),
-    path('api/v1/', include(api_v1_router.urls)),
+    path('auth/', include('accounts.auth_urls')),
+    #path('api/v1/', include(api_v1_router.urls)),
     # path('api/v1', include(router.urls)),
 ]
