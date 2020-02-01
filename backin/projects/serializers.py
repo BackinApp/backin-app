@@ -8,7 +8,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Projects
         fields = '__all__'
-
+    """
     @get_request_token
     def get(self, pk):
         print("pk")
@@ -16,6 +16,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         print(pk)
         app_obj = Projects.objects.filter(pk=pk).first()
         return app_obj
+    """
 
     @get_request_token
     def create(self, validated_data):
