@@ -6,8 +6,8 @@ from accounts import views as auth_views
 
 def set_auth_routes():
     router = routers.DefaultRouter()
-    router.register(r'signup/', auth_views.SignupView, basename='SignUp')
-    router.register(r'login/', auth_views.LoginView, basename='Login')
+    router.register(r'signup', auth_views.SignupView, basename='signup')
+    router.register(r'login', auth_views.LoginView, basename='login')
     return router
 
 def set_api_routes():
