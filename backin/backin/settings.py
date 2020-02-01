@@ -78,6 +78,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'backin.urls'
+ENABLE_SSL = ast.literal_eval(os.environ.get('ENABLE_SSL', 'False'))
+FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.TemporaryFileUploadHandler']
 
 TEMPLATES = [
     {
@@ -103,9 +105,27 @@ WSGI_APPLICATION = 'backin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': os.environ.get('DB_HOST', ''),
+        'NAME': os.environ.get('DATABASE', ''),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'PORT': 5432
+    },
+    'mirror1': {
+        'NAME': 'mirror1',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': os.environ.get('HOST_MIRROR', ''),
+        'NAME': os.environ.get('DATABASE_MIRROR', ''),
+        'USER': os.environ.get('USER_MIRROR', ''),
+        'PASSWORD': os.environ.get('PASSWORD_MIRROR', ''),
+        'PORT': os.environ.get('PORT_MIRROR', '')
+    },
+    'django': {
+        'ENGINE': 'djongo',
+        'NAME': os.environ.get('NAME_MONGO', ''),
+        'HOST': os.environ.get('HOST_MONGO', ''),
+    },
 }
 
 # Password validation
