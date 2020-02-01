@@ -39,7 +39,7 @@ SITE_ID = 1
 ALLOWED_HOSTS = ['*']
 
 APPEND_SLASH = False
-ENABLE_SSL = ast.literal_eval(os.environ.get('ENABLE_SSL', 'False'))
+ENABLE_SSL = os.environ.get('ENABLE_SSL', 'False')
 
 # Application definition
 
@@ -111,8 +111,8 @@ DATABASES = {
         'USER': os.environ.get('DB_USER', ''),
         'PASSWORD': os.environ.get('DB_PASSWORD', ''),
         'PORT': 5432,
-        'TEST': {
-            'NAME': 'mytestdatabase',
+        'OPTIONS': {
+            'sslmode': 'disable',
         },
     },
     'mirror1': {
@@ -122,7 +122,10 @@ DATABASES = {
         'NAME': os.environ.get('DATABASE_MIRROR', ''),
         'USER': os.environ.get('USER_MIRROR', ''),
         'PASSWORD': os.environ.get('PASSWORD_MIRROR', ''),
-        'PORT': os.environ.get('PORT_MIRROR', '')
+        'PORT': os.environ.get('PORT_MIRROR', ''),
+        'OPTIONS': {
+            'sslmode': 'disable',
+        },
     },
     'django': {
         'ENGINE': 'djongo',
@@ -291,3 +294,4 @@ STATIC_ROOT = 'static'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']
