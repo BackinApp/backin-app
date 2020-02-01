@@ -9,7 +9,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Projects
         fields = '__all__'
 
-    @get_request_token
+    # @get_request_token
     def create(self, validated_data):
         if validated_data['created_by']:
             app_obj = Projects.objects.create(**validated_data)

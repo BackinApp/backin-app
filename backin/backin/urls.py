@@ -17,6 +17,8 @@ cms_v1_router = set_cms_routes()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('accounts.auth_urls')),
+    path('api/v1/', include(('projects.urls', 
+                            'dbengine.urls'))),
     #path('api/v1/', include(api_v1_router.urls)),
     # path('api/v1', include(router.urls)),
 ]
