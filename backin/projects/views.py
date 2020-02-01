@@ -29,6 +29,9 @@ class ProjectView(mixins.ListModelMixin,
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
+    def update(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
     # def perform_create(self, serializer):
      #   serializer.save()
     

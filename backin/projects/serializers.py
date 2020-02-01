@@ -11,9 +11,11 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     @get_request_token
     def get(self, pk):
-        if validated_data['created_by']:
-            app_obj = Projects.objects.create(**validated_data)
-            return app_obj
+        print("pk")
+        print("------")
+        print(pk)
+        app_obj = Projects.objects.filter(pk=pk).first()
+        return app_obj
 
     @get_request_token
     def create(self, validated_data):
