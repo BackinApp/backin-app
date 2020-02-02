@@ -21,11 +21,11 @@ class Attributes(models.Model):
                                on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     type = models.CharField(max_length=150)
-    is_null = models.BinaryField(default=False)
-    is_auto_increment = models.BinaryField(default=False)
-    is_unique = models.BinaryField(default=False)
-    is_primary_key = models.BinaryField(default=False)
-    is_index = models.BinaryField(default=False)
+    is_null = models.BooleanField(default=False)
+    is_auto_increment = models.BooleanField(default=False)
+    is_unique = models.BooleanField(default=False)
+    is_primary_key = models.BooleanField(default=False)
+    is_index = models.BooleanField(default=False)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
                                    related_name='user_creation', on_delete=models.CASCADE)
     updated_by = models.ForeignKey(settings.AUTH_USER_MODEL,
