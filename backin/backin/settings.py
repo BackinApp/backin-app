@@ -158,6 +158,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'django.contrib.auth.password_validation'
         '.NumericPasswordValidator',
     },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "OPTIONS": {"min_length": 8},
+    },
 ]
 
 REST_FRAMEWORK = {
@@ -208,14 +212,56 @@ JWT_AUTH = {
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = "America/Chicago"
+LANGUAGE_CODE = "en"
+LANGUAGES = [
+    ("ar", "Arabic"),
+    ("az", "Azerbaijani"),
+    ("bg", "Bulgarian"),
+    ("bn", "Bengali"),
+    ("ca", "Catalan"),
+    ("cs", "Czech"),
+    ("da", "Danish"),
+    ("de", "German"),
+    ("el", "Greek"),
+    ("en", "English"),
+    ("es", "Spanish"),
+    ("es-co", "Colombian Spanish"),
+    ("et", "Estonian"),
+    ("fa", "Persian"),
+    ("fr", "French"),
+    ("hi", "Hindi"),
+    ("hu", "Hungarian"),
+    ("hy", "Armenian"),
+    ("id", "Indonesian"),
+    ("is", "Icelandic"),
+    ("it", "Italian"),
+    ("ja", "Japanese"),
+    ("ko", "Korean"),
+    ("lt", "Lithuanian"),
+    ("mn", "Mongolian"),
+    ("nb", "Norwegian"),
+    ("nl", "Dutch"),
+    ("pl", "Polish"),
+    ("pt", "Portuguese"),
+    ("pt-br", "Brazilian Portuguese"),
+    ("ro", "Romanian"),
+    ("ru", "Russian"),
+    ("sk", "Slovak"),
+    ("sq", "Albanian"),
+    ("sr", "Serbian"),
+    ("sw", "Swahili"),
+    ("sv", "Swedish"),
+    ("th", "Thai"),
+    ("tr", "Turkish"),
+    ("uk", "Ukrainian"),
+    ("vi", "Vietnamese"),
+    ("zh-hans", "Simplified Chinese"),
+    ("zh-hant", "Traditional Chinese"),
+]
+LOCALE_PATHS = [os.path.join(PROJECT_ROOT, "locale")]
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
