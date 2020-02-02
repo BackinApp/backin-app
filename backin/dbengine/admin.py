@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import DBEngine
+from .models import DBEngines
 
-admin.site.register(DBEngine)
+admin.site.register(DBEngines)
