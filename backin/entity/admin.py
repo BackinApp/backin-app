@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Entity
+from .models import Entities, Attributes
 
-admin.site.register(Entity)
+admin.site.register([Entities, Attributes])

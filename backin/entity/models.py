@@ -4,7 +4,7 @@ from django.conf import settings
 from database.models import Databases
 
 
-class Entity(models.Model):
+class Entities(models.Model):
     database = models.ForeignKey(Databases, related_name='project_database',
                                  null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=300)
@@ -17,7 +17,7 @@ class Entity(models.Model):
 
 
 class Attributes(models.Model):
-    entity = models.ForeignKey(Entity, related_name='entity_attribute',
+    entity = models.ForeignKey(Entities, related_name='entity_attribute',
                                on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     type = models.CharField(max_length=150)

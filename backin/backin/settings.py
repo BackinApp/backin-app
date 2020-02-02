@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'dbengine',
     'entity',
     'techs',
-    # 'projects',
 ]
 
 MIDDLEWARE = [
