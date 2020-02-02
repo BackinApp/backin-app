@@ -58,7 +58,7 @@ services:
     depends_on:
       - db
       - db-mirror
-      - mongodb
+    #  - mongodb
   db:
     image: postgres:10-alpine
     ports:
@@ -79,18 +79,18 @@ services:
     image: redis
     ports:
       - '127.0.0.1:6379:6379'
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb_backin
-    environment:
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/dev/null
-      - MONGODB_USER=${USER_MONGO}
-      - MONGODB_PASS=${PASS_MONGO}
-    volumes:
-      - ./data/db:/data/db
-    ports:
-        - 27017:27017
-    command: mongod --logpath=/dev/null # --quiet
+  # mongodb:
+    # image: mongo:latest
+    # container_name: mongodb_backin
+    # environment:
+    #  - MONGO_DATA_DIR=/data/db
+    #  - MONGO_LOG_DIR=/dev/null
+    #  - MONGODB_USER=${USER_MONGO}
+    #  - MONGODB_PASS=${PASS_MONGO}
+    # volumes:
+    #  - ./data/db:/data/db
+    # ports:
+    #    - 27017:27017
+    # command: mongod --logpath=/dev/null # --quiet
 volumes:
   data-volume:
