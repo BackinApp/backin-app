@@ -61,7 +61,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"App Test 2\",\n\t\"description\": \"App 2 for test the system\",\n\t\"version\": \"1.0\",\n\t\"technology\": \"python\",\n\t\"tool\": \"django_auth\",\n\t\"stack\": true,\n\t\"db_engine\": \"postgres\",\n\t\"db_name\": \"name for the database\",\n\t\"git_repo\": \"https://github.com//.git\",\n\t\"dockerized\": 1,\n\t\"admin_panel\": false,\n\t\"product\": \"rest\",\n\t\"output\": \"json\",\n\t\"request_log\": true,\n\t\"project\": 1\n}\n"
+							"raw": "{\n\t\"name\": \"finden-backend-users\",\n\t\"description\": \"finden-backend-users for test the system\",\n\t\"version\": \"1.0\",\n\t\"technology\": \"python\",\n\t\"tool\": \"django_rest_framework\",\n\t\"stack\": true,\n\t\"db_engine\": \"postgres\",\n\t\"db_name\": \"findenapp\",\n\t\"git_repo\": \"https://github.com//.git\",\n\t\"dockerized\": 1,\n\t\"admin_panel\": true,\n\t\"product\": \"rest\",\n\t\"output\": \"json\",\n\t\"request_log\": true,\n\t\"project\": 8\n}\n"
 						},
 						"url": {
 							"raw": "{{url}}api/v1/apps/",
@@ -101,17 +101,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"App Test 3\",\n\t\"description\": \"App 2 for test the system\",\n\t\"version\": \"1.0\",\n\t\"technology\": \"python\",\n\t\"tool\": \"django_auth\",\n\t\"stack\": true,\n\t\"db_engine\": \"postgres\",\n\t\"db_name\": \"name for the database\",\n\t\"git_repo\": \"https://github.com//.git\",\n\t\"dockerized\": 1,\n\t\"admin_panel\": false,\n\t\"product\": \"rest\",\n\t\"output\": \"json\",\n\t\"request_log\": true,\n\t\"project\": 1\n}"
+							"raw": "{\n\t\"name\": \"App Test 3\",\n\t\"description\": \"App 3 for test the system\",\n\t\"version\": \"1.0\",\n\t\"technology\": \"python\",\n\t\"tool\": \"django_auth\",\n\t\"stack\": true,\n\t\"db_engine\": \"postgres\",\n\t\"db_name\": \"name for the database\",\n\t\"git_repo\": \"https://github.com//.git\",\n\t\"dockerized\": 1,\n\t\"admin_panel\": false,\n\t\"product\": \"rest\",\n\t\"output\": \"json\",\n\t\"request_log\": true,\n\t\"project\": 1\n}"
 						},
 						"url": {
-							"raw": "{{url}}api/v1/apps/1/",
+							"raw": "{{url}}api/v1/apps/3/",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
 								"apps",
-								"1",
+								"3",
 								""
 							]
 						}
@@ -187,6 +187,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get App download",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/apps/2/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"apps",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -194,6 +224,97 @@
 		{
 			"name": "User",
 			"item": [
+				{
+					"name": "JWT",
+					"item": [
+						{
+							"name": "Api-token Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"eli_loe@gmail.com\",\n    \"password\": \"12345678\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}api-token-auth/",
+									"host": [
+										"{{url}}api-token-auth"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Api-token Refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImVsaV9sb2VAZ21haWwuY29tIiwiZXhwIjoxNTY2MjczNjU2LCJlbWFpbCI6ImVsaV9sb2VAZ21haWwuY29tIiwib3JpZ19pYXQiOjE1NjYyNDM2NTZ9.Q5MhjtdxSCltLg-h4l0l3stx7iNqPXMyoI6fDaC43hY\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}api-token-refresh/",
+									"host": [
+										"{{url}}api-token-refresh"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Api-token Verify",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImVsaV9sb2VAZ21haWwuY29tIiwiZXhwIjoxNTcyMTc0NDc0LCJlbWFpbCI6ImVsaV9sb2VAZ21haWwuY29tIiwib3JpZ19pYXQiOjE1NzIxNDQ0NzR9.cX17toaqMniX3f7R66E2TR58tu5ltYxUV2k-FFvKL7U\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}api-token-verify/",
+									"host": [
+										"{{url}}api-token-verify"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
 				{
 					"name": "User Register",
 					"protocolProfileBehavior": {
@@ -266,98 +387,84 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "JWT",
-			"item": [
-				{
-					"name": "Api-token Create",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"eli_loe@gmail.com\",\n    \"password\": \"12345678\"\n}"
-						},
-						"url": {
-							"raw": "{{url}}api-token-auth/",
-							"host": [
-								"{{url}}api-token-auth"
-							],
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Api-token Refresh",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImVsaV9sb2VAZ21haWwuY29tIiwiZXhwIjoxNTY2MjczNjU2LCJlbWFpbCI6ImVsaV9sb2VAZ21haWwuY29tIiwib3JpZ19pYXQiOjE1NjYyNDM2NTZ9.Q5MhjtdxSCltLg-h4l0l3stx7iNqPXMyoI6fDaC43hY\"\n}"
-						},
-						"url": {
-							"raw": "{{url}}api-token-refresh/",
-							"host": [
-								"{{url}}api-token-refresh"
-							],
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Api-token Verify",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImVsaV9sb2VAZ21haWwuY29tIiwiZXhwIjoxNTcyMTc0NDc0LCJlbWFpbCI6ImVsaV9sb2VAZ21haWwuY29tIiwib3JpZ19pYXQiOjE1NzIxNDQ0NzR9.cX17toaqMniX3f7R66E2TR58tu5ltYxUV2k-FFvKL7U\"\n}"
-						},
-						"url": {
-							"raw": "{{url}}api-token-verify/",
-							"host": [
-								"{{url}}api-token-verify"
-							],
-							"path": [
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "Category",
 			"item": [
+				{
+					"name": "Subcategory",
+					"item": [
+						{
+							"name": "Create Subategories",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Subategory test 1\",\n\t\"description\": \"subategory for service test 1\",\n\t\"category\": 1\n}"
+								},
+								"url": {
+									"raw": "{{url}}api/v1/subcategories/",
+									"host": [
+										"{{url}}api"
+									],
+									"path": [
+										"v1",
+										"subcategories",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Subcategories",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}api/v1/subcategories/",
+									"host": [
+										"{{url}}api"
+									],
+									"path": [
+										"v1",
+										"subcategories",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
 				{
 					"name": "Get Categories",
 					"request": {
@@ -501,81 +608,6 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Subcategory",
-			"item": [
-				{
-					"name": "Create Subategories",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Subategory test 1\",\n\t\"description\": \"subategory for service test 1\",\n\t\"category\": 1\n}"
-						},
-						"url": {
-							"raw": "{{url}}api/v1/subcategories/",
-							"host": [
-								"{{url}}api"
-							],
-							"path": [
-								"v1",
-								"subcategories",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Subcategories",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}api/v1/subcategories/",
-							"host": [
-								"{{url}}api"
-							],
-							"path": [
-								"v1",
-								"subcategories",
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "Tools",
 			"item": [
 				{
@@ -618,7 +650,53 @@
 		},
 		{
 			"name": "Databases",
-			"item": [],
+			"item": [
+				{
+					"name": "Post Database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"App Test 2\",\n\t\"created_by\": 1,\n\t\"app\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/databases/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"databases",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -650,13 +728,43 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}api/v1/tech/",
+							"raw": "{{url}}api/v1/techs/",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
-								"tech",
+								"techs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  DB Engine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/techs/2/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"techs",
+								"2",
 								""
 							]
 						}
@@ -714,14 +822,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}api/v1/dbengines/1/",
+							"raw": "{{url}}api/v1/dbengines/2/",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
 								"dbengines",
-								"1",
+								"2",
 								""
 							]
 						}
@@ -758,7 +866,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Project Test 7\",\n\t\"description\": \"Project 7 for test the system\",\n\t\"version\": \"1.0\"\n}"
+							"raw": "{\n\t\"name\": \"Finden\",\n\t\"description\": \"Finden Project for test the system\",\n\t\"version\": \"1.0\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}api/v1/projects/",
@@ -790,14 +898,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}api/v1/projects/6/",
+							"raw": "{{url}}api/v1/projects/7/",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
 								"v1",
 								"projects",
-								"6",
+								"7",
 								""
 							]
 						}
@@ -909,6 +1017,57 @@
 								"v1",
 								"projects",
 								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Entity",
+			"item": [
+				{
+					"name": "Post Entity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"finden-users-database\",\n\t\"created_by\": 1,\n\t\"database\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/entitites/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"entitites",
 								""
 							]
 						}
