@@ -42,3 +42,7 @@ class User(PermissionsMixin, AbstractBaseUser):
 
     def get_full_name(self):
         return self.email
+
+
+class Blacklist(models.Model):
+    ip_addr = models.GenericIPAddressField()
