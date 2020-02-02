@@ -5,5 +5,5 @@ from .models import Databases
 
 class DatabaseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Database
+        model = Databases
         fields = '__all__'
