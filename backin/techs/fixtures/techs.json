@@ -1,0 +1,92 @@
+[
+  {
+    "model": "techs.techs",
+    "pk": 1,
+    "fields": {
+      "name": "Technology",
+      "code_name": "-",
+      "display_name": "Technology",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 2,
+    "fields": {
+      "name": "Python",
+      "code_name": "python",
+      "display_name": "Python",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 3,
+    "fields": {
+      "name": "Js",
+      "code_name": "js",
+      "display_name": "Js",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 4,
+    "fields": {
+      "name": "Go",
+      "code_name": "golang",
+      "display_name": "Go",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 5,
+    "fields": {
+      "name": "Ruby",
+      "code_name": "ruby",
+      "display_name": "Ruby",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 6,
+    "fields": {
+      "name": "PHP",
+      "code_name": "php",
+      "display_name": "PHP",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 7,
+    "fields": {
+      "name": ".Net C#",
+      "code_name": "net-c",
+      "display_name": ".Net C#",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 8,
+    "fields": {
+      "name": ".Net Core C#",
+      "code_name": "net-core-c",
+      "display_name": ".Net Core C#",
+      "oficial_doc": "-"
+    }
+  },
+  {
+    "model": "techs.techs",
+    "pk": 9,
+    "fields": {
+      "name": "Elixir",
+      "code_name": "elixir",
+      "display_name": "Elixir",
+      "oficial_doc": "-"
+    }
+  }
+]
