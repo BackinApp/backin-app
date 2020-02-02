@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from .models import Entity
-# from namoxpanel.utils import get_request_token
+from .models import Entities, Attributes
 
 
 class EntitySerializer(serializers.ModelSerializer):
@@ -9,7 +8,8 @@ class EntitySerializer(serializers.ModelSerializer):
         model = Entity
         fields = '__all__'
 
-# @get_request_token
-    def create(self, validated_data):
-        entity_obj = Entity.objects.create(**validated_data)
-        return entity_obj
+
+class AttributeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Attributes
+        fields = '__all__'
