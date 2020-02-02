@@ -5,7 +5,7 @@ from .models import Entities, Attributes
 
 class EntitySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Entity
+        model = Entities
         fields = '__all__'
 
 
