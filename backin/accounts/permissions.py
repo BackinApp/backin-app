@@ -1,5 +1,5 @@
 from rest_framework import permissions
-from .models import Users, Blacklist
+from .models import User, Blacklist
 
 
 class BlacklistPermission(permissions.BasePermission):
