@@ -7,13 +7,11 @@ name = "Backin"
 
 import os, ast
 from datetime import timedelta
-# import dj_database_url
 import django_heroku
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -42,15 +40,14 @@ APPEND_SLASH = False
 ENABLE_SSL = os.environ.get('ENABLE_SSL', 'False')
 
 # Application definition
-
 INSTALLED_APPS = [
-    # External apps
+# External apps
     'rest_framework',
     'rest_framework.authtoken',
     'django_countries',
     'corsheaders',
 
-    # Django modules
+# Django modules
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Platform modules
+# Platform modules
     'accounts',
     'projects',
     'techs',
@@ -160,6 +157,16 @@ AUTH_PASSWORD_VALIDATORS = [
         '.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
 
 JWT_AUTH = {
     'JWT_ENCODE_HANDLER':

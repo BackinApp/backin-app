@@ -1,16 +1,12 @@
 # projects/urls.py
-from django.urls import path
 
-from .views import ProjectView
+from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
+
+from .views import (ProjectList, ProjectDetail)
+
 
 urlpatterns = [
-    path('projects', ProjectView.as_view()),
-    path('projects/get', ProjectView.as_view()),
-    path('projects/<int:pk>', ProjectView.as_view()),
-    path('projects/update/<int:pk>', ProjectView.as_view()),
-    path('projects/delete/<int:pk>', ProjectView.as_view())
-    # path('<int:pk>/', DetailTodo.as_view()),
-    # path('projects', ProjectView.as_view({'get': 'list', 'get': 'retrieve',
-    #                                      'post': 'create', 'put':'update',
-    #                                      'delete': 'delete'})),
+    path('projects/', csrf_exempt(ProjectList.as_view())),
+    path('projects/<int:pk>/', csrf_exempt(ProjectDetail.as_view())),
 ]
