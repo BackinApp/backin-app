@@ -6,8 +6,8 @@ from .serializers import TechSerializer
 
 
 class TechList(generics.ListCreateAPIView):
-    queryset = Databases.objects.all()
-    serializer_class = DatabaseSerializer
+    queryset = Techs.objects.all()
+    serializer_class = TechSerializer
     authentication_classes = [JSONWebTokenAuthentication]
     permission_classes = (
         permissions.IsAuthenticated,
@@ -15,8 +15,8 @@ class TechList(generics.ListCreateAPIView):
 
 
 class TechDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Databases.objects.all()
-    serializer_class = DatabaseSerializer
+    queryset = Techs.objects.all()
+    serializer_class = TechSerializer
     authentication_classes = [JSONWebTokenAuthentication]
     permission_classes = (
         permissions.IsAuthenticated,
