@@ -5,7 +5,7 @@ from accounts.models import User
 
 
 # Main App model creation
-class App(models.Model):
+class Apps(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True, null=True)
     version = models.CharField(max_length=255, blank=True, null=True, default='1.0')
