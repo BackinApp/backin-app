@@ -58,10 +58,12 @@ INSTALLED_APPS = [
 # Platform modules
     'accounts',
     'projects',
-    'techs',
-    'dbengine',
+    'apps',
+    'categories',
     'database',
+    'dbengine',
     'entity',
+    'techs',
     # 'projects',
 ]
 
