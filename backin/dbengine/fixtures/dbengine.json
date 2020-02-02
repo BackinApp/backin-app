@@ -1,6 +1,6 @@
 [
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 1,
     "fields": {
       "name": "Database",
@@ -10,7 +10,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 2,
     "fields": {
       "name": "PostgreSQL",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 3,
     "fields": {
       "name": "MySql",
@@ -30,7 +30,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 4,
     "fields": {
       "name": "MariaDB",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 5,
     "fields": {
       "name": "SQL Server",
@@ -50,7 +50,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 6,
     "fields": {
       "name": "Oracle",
@@ -60,7 +60,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 7,
     "fields": {
       "name": "DB2",
@@ -70,7 +70,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 8,
     "fields": {
       "name": "SQLite",
@@ -80,7 +80,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 9,
     "fields": {
       "name": "MongoDB",
@@ -90,7 +90,7 @@
     }
   },
   {
-    "model": "dbengine.dbengine",
+    "model": "dbengine.dbengines",
     "pk": 10,
     "fields": {
       "name": "Cassandra",
