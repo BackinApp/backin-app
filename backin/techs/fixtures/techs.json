@@ -1,6 +1,6 @@
 [
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 1,
     "fields": {
       "name": "Technology",
@@ -10,7 +10,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 2,
     "fields": {
       "name": "Python",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 3,
     "fields": {
       "name": "Js",
@@ -30,7 +30,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 4,
     "fields": {
       "name": "Go",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 5,
     "fields": {
       "name": "Ruby",
@@ -50,7 +50,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 6,
     "fields": {
       "name": "PHP",
@@ -60,7 +60,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 7,
     "fields": {
       "name": ".Net C#",
@@ -70,7 +70,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 8,
     "fields": {
       "name": ".Net Core C#",
@@ -80,7 +80,7 @@
     }
   },
   {
-    "model": "tech.techs",
+    "model": "techs.techs",
     "pk": 9,
     "fields": {
       "name": "Elixir",
