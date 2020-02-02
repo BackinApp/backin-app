@@ -10,7 +10,7 @@ class Projects(models.Model):
     description = models.TextField(blank=True, null=True)
     version = models.CharField(max_length=255, blank=True, null=True, default='1.0.0')
     active = models.BooleanField(blank=False, null=False, default=True)
-    created_by = models.ForeignKey(User, related_name='app_creator', null=True,
+    created_by = models.ForeignKey(User, related_name='project_creator', null=True,
                                    blank=True, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True, editable=False)
     last_update = models.DateTimeField(auto_now=True, editable=True)
