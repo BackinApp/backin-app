@@ -1,15 +1,9 @@
 from rest_framework import serializers
 
-from .models import Tech
-# from namoxpanel.utils import get_request_token
+from .models import Techs
 
 
 class TechSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Tech
+        model = Techs
         fields = '__all__'
-
-# @get_request_token
-    def create(self, validated_data):
-        tech_obj = Tech.objects.create(**validated_data)
-        return tech_obj

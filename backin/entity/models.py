@@ -16,7 +16,7 @@ class Entity(models.Model):
     last_update = models.DateTimeField(auto_now=True)
 
 
-class Attribute(models.Model):
+class Attributes(models.Model):
     entity = models.ForeignKey(Entity, related_name='entity_attribute',
                                on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
