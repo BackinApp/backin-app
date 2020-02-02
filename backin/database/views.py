@@ -1,13 +1,21 @@
-from rest_framework import viewsets, permissions
-# from rest_framework.response import Response
+from rest_framework import permissions, mixins, generics, viewsets
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from .models import Database
+from .models import Databases
 from .serializers import DatabaseSerializer
 
 
-class DatabaseView(viewsets.ModelViewSet):
-    queryset = Database.objects.all()
+class DatabaseList(generics.ListCreateAPIView):
+    queryset = Databases.objects.all()
+    serializer_class = DatabaseSerializer
+    authentication_classes = [JSONWebTokenAuthentication]
+    permission_classes = (
+        permissions.IsAuthenticated,
+    )
+
+
+class DatabaseDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Databases.objects.all()
     serializer_class = DatabaseSerializer
     authentication_classes = [JSONWebTokenAuthentication]
     permission_classes = (

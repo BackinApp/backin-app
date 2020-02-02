@@ -12,5 +12,5 @@ urlpatterns = [
     path('auth/', include('accounts.auth_urls')),
     path('api/v1/', include('projects.urls')),
     path('api/v1/', include('apps.urls')),
-    #path('api/v1/', include('dbengine.urls')),
+    path('api/v1/', include('dbengine.urls')),
 ]
