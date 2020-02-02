@@ -52,8 +52,8 @@ services:
     command: >
       sh -c "python3 backin/manage.py makemigrations &&
           python3 backin/manage.py migrate &&
-          python3 backin/manage.py loaddata dbengine &&
-          python3 backin/manage.py loaddata tech &&
+          python3 backin/manage.py loaddata dbengines &&
+          python3 backin/manage.py loaddata techs &&
           python3 backin/manage.py runserver 0.0.0.0:9090"
     depends_on:
       - db
