@@ -2,7 +2,7 @@ from django.utils.timezone import now
 from django.db import models
 
 
-class DBEngine(models.Model):
+class DBEngines(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True, default='')
     code_name = models.CharField(max_length=255, blank=True, null=True, default='')
     display_name = models.CharField(max_length=255, blank=True, null=True, default='')
