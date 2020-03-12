@@ -1,2 +1,3 @@
-release: python backin/manage.py migrate --no-input
-web: uwsgi backin/wsgi/uwsgi.ini
+release: python3 backin/manage.py migrate --no-input
+#web: uwsgi backin/wsgi/uwsgi.ini
+web: cd backin/ && gunicorn backin.wsgi --log-file -

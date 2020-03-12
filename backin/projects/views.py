@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from rest_framework import mixins, generics, viewsets
-from rest_framework.permissions import IsAuthenticated
+# from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from accounts.permissions import IsUserOwner, BlacklistPermission

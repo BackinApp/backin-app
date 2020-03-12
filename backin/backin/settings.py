@@ -77,7 +77,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'backin.urls'
-ENABLE_SSL = ast.literal_eval(os.environ.get('ENABLE_SSL', 'False'))
 FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.TemporaryFileUploadHandler']
 
 TEMPLATES = [
