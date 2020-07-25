@@ -113,24 +113,27 @@ DATABASES = {
             'sslmode': 'disable',
         },
     },
-    'mirror1': {
-        'NAME': 'mirror1',
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get('HOST_MIRROR', ''),
-        'NAME': os.environ.get('DATABASE_MIRROR', ''),
-        'USER': os.environ.get('USER_MIRROR', ''),
-        'PASSWORD': os.environ.get('PASSWORD_MIRROR', ''),
-        'PORT': os.environ.get('PORT_MIRROR', ''),
-        'OPTIONS': {
-            'sslmode': 'disable',
-        },
-    },
     'django': {
         'ENGINE': 'djongo',
         'NAME': os.environ.get('NAME_MONGO', ''),
         'HOST': os.environ.get('HOST_MONGO', ''),
     },
 }
+
+"""
+'mirror1': {
+    'NAME': 'mirror1',
+    'ENGINE': 'django.db.backends.postgresql',
+    'HOST': os.environ.get('HOST_MIRROR', ''),
+    'NAME': os.environ.get('DATABASE_MIRROR', ''),
+    'USER': os.environ.get('USER_MIRROR', ''),
+    'PASSWORD': os.environ.get('PASSWORD_MIRROR', ''),
+    'PORT': os.environ.get('PORT_MIRROR', ''),
+    'OPTIONS': {
+        'sslmode': 'disable',
+    },
+},
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
