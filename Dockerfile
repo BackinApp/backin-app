@@ -41,4 +41,4 @@ ENV PORT 9090
 
 ENV PYTHONUNBUFFERED 1
 ENV PROCESSES 8
-# CMD ["uwsgi", "/app/backin/wsgi/uwsgi.ini"]
+CMD ["gunicorn", "--bind", ":8088", "--workers", "16", "backin/backin.wsgi:application"]
